@@ -29,8 +29,8 @@ export default defineConfig({
   name: 'default',
   title: 'InTown',
 
-  projectId: 'hqky80t4',
-  dataset: 'production',
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID!,
+  dataset: process.env.SANITY_STUDIO_DATASET!,
 
   plugins: [structureTool({structure}), visionTool()],
 

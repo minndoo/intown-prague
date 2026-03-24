@@ -1,0 +1,190 @@
+import { defineQuery } from "next-sanity";
+
+export const landingPageQuery = defineQuery(`
+  *[_id == "landingPage"][0]{
+    _id,
+    title,
+    slug,
+    heroSection {
+      tagline,
+      subtitle,
+      backgroundImage {
+        image {
+          asset->{_id, url, metadata {dimensions}},
+          hotspot,
+          crop
+        },
+        alt
+      },
+      cta {
+        label,
+        linkType,
+        href,
+        anchor
+      }
+    },
+    sections[] {
+      _key,
+      _type,
+      heading,
+      // introSection
+      _type == "introSection" => {
+        body,
+        image {
+          image {
+            asset->{_id, url, metadata {dimensions}},
+            hotspot,
+            crop
+          },
+          alt
+        }
+      },
+      // featureGridSection
+      _type == "featureGridSection" => {
+        subtitle,
+        features[] {
+          _key,
+          title,
+          description,
+          image {
+            image {
+              asset->{_id, url, metadata {dimensions}},
+              hotspot,
+              crop
+            },
+            alt
+          }
+        }
+      },
+      // imageTextSection
+      _type == "imageTextSection" => {
+        body,
+        image {
+          image {
+            asset->{_id, url, metadata {dimensions}},
+            hotspot,
+            crop
+          },
+          alt
+        },
+        imagePosition
+      },
+      // statsSection
+      _type == "statsSection" => {
+        stats[] {
+          _key,
+          value,
+          label
+        }
+      },
+      // gallerySection
+      _type == "gallerySection" => {
+        images[] {
+          _key,
+          image {
+            asset->{_id, url, metadata {dimensions}},
+            hotspot,
+            crop
+          },
+          alt
+        }
+      },
+      // testimonialSection
+      _type == "testimonialSection" => {
+        testimonials[] {
+          _key,
+          quote,
+          author,
+          role,
+          avatar {
+            asset->{_id, url, metadata {dimensions}},
+            hotspot,
+            crop
+          }
+        }
+      },
+      // faqSection
+      _type == "faqSection" => {
+        items[] {
+          _key,
+          question,
+          answer
+        }
+      },
+      // ctaSection
+      _type == "ctaSection" => {
+        body,
+        cta {
+          label,
+          linkType,
+          href,
+          anchor
+        },
+        backgroundImage {
+          image {
+            asset->{_id, url, metadata {dimensions}},
+            hotspot,
+            crop
+          },
+          alt
+        }
+      },
+      // contactSection
+      _type == "contactSection" => {
+        locations[] {
+          _key,
+          locationName,
+          address,
+          phone,
+          email,
+          openingHours,
+          googleMapsUrl
+        }
+      },
+      // menuSection
+      _type == "menuSection" => {
+        categories[] {
+          _key,
+          title,
+          items[] {
+            _key,
+            name,
+            price,
+            badge
+          }
+        }
+      }
+    },
+    seo {
+      metaTitle,
+      metaDescription,
+      ogImage {
+        asset->{_id, url, metadata {dimensions}},
+        hotspot,
+        crop
+      }
+    }
+  }
+`);
+
+export const siteSettingsQuery = defineQuery(`
+  *[_id == "siteSettings"][0]{
+    _id,
+    siteTitle,
+    copyrightText,
+    socialLinks[] {
+      _key,
+      platform,
+      url
+    },
+    defaultSeo {
+      metaTitle,
+      metaDescription,
+      ogImage {
+        asset->{_id, url, metadata {dimensions}},
+        hotspot,
+        crop
+      }
+    }
+  }
+`);

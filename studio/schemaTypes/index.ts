@@ -15,6 +15,7 @@ import {testimonialSection} from './objects/sections/testimonialSection'
 import {faqSection} from './objects/sections/faqSection'
 import {ctaSection} from './objects/sections/ctaSection'
 import {contactSection} from './objects/sections/contactSection'
+import {menuSection} from './objects/sections/menuSection'
 
 // Primitives
 import {ctaLink} from './objects/primitives/ctaLink'
@@ -26,6 +27,8 @@ import {testimonialItem} from './objects/primitives/testimonialItem'
 import {contactItem} from './objects/primitives/contactItem'
 import {featureCard} from './objects/primitives/featureCard'
 import {socialLink} from './objects/primitives/socialLink'
+import {menuItem} from './objects/primitives/menuItem'
+import {menuCategory} from './objects/primitives/menuCategory'
 
 // Legacy
 import {postType} from './postType'
@@ -48,6 +51,7 @@ export const schemaTypes = [
   faqSection,
   ctaSection,
   contactSection,
+  menuSection,
 
   // Primitives
   ctaLink,
@@ -59,6 +63,8 @@ export const schemaTypes = [
   contactItem,
   featureCard,
   socialLink,
+  menuItem,
+  menuCategory,
 
   // Legacy
   postType,

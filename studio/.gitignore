@@ -25,5 +25,10 @@
 # Typescript
 *.tsbuildinfo
 
+# Generated schema
+schema.json
+
 # Dotenv and similar local-only files
 *.local
+.env*
+!.env.example

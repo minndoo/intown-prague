@@ -46,6 +46,7 @@ export const landingPage = defineType({
         defineArrayMember({type: 'faqSection'}),
         defineArrayMember({type: 'ctaSection'}),
         defineArrayMember({type: 'contactSection'}),
+        defineArrayMember({type: 'menuSection'}),
       ],
       options: {
         insertMenu: {
