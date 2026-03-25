@@ -1,5 +1,6 @@
 import {defineField, defineType} from 'sanity'
 import {ImagesIcon} from '@sanity/icons'
+import {fragmentField} from '../primitives/anchorField'
 
 export const gallerySection = defineType({
   name: 'gallerySection',
@@ -7,6 +8,7 @@ export const gallerySection = defineType({
   type: 'object',
   icon: ImagesIcon,
   fields: [
+    fragmentField,
     defineField({
       name: 'heading',
       type: 'string',

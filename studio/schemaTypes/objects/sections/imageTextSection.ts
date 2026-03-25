@@ -1,5 +1,6 @@
 import {defineField, defineType} from 'sanity'
 import {SplitHorizontalIcon} from '@sanity/icons'
+import {fragmentField} from '../primitives/anchorField'
 
 export const imageTextSection = defineType({
   name: 'imageTextSection',
@@ -7,6 +8,7 @@ export const imageTextSection = defineType({
   type: 'object',
   icon: SplitHorizontalIcon,
   fields: [
+    fragmentField,
     defineField({
       name: 'heading',
       type: 'string',

@@ -1,4 +1,4 @@
-import type { LandingPageQueryResult } from "@/lib/sanity/generated/types";
+import type { LandingPageQueryResult, SiteSettingsQueryResult } from "@/lib/sanity/generated/types";
 import { IntroSection } from "./IntroSection";
 import { FeatureGridSection } from "./FeatureGridSection";
 import { ImageTextSection } from "./ImageTextSection";
@@ -12,18 +12,23 @@ import { MenuSection } from "./MenuSection";
 
 type Section = NonNullable<NonNullable<LandingPageQueryResult>["sections"]>[number];
 
+type Logo = NonNullable<SiteSettingsQueryResult>["logo"];
+type LogoLight = NonNullable<SiteSettingsQueryResult>["logoLight"];
+
 type Props = {
   section: Section;
+  logo?: Logo;
+  logoLight?: LogoLight;
 };
 
-export function SectionRenderer({ section }: Props) {
+export function SectionRenderer({ section, logo, logoLight }: Props) {
   switch (section._type) {
     case "introSection":
-      return <IntroSection data={section} />;
+      return <IntroSection data={section} logoLight={logoLight} />;
     case "featureGridSection":
       return <FeatureGridSection data={section} />;
     case "imageTextSection":
-      return <ImageTextSection data={section} />;
+      return <ImageTextSection data={section} logo={logo} />;
     case "statsSection":
       return <StatsSection data={section} />;
     case "gallerySection":
@@ -33,7 +38,7 @@ export function SectionRenderer({ section }: Props) {
     case "faqSection":
       return <FaqSection data={section} />;
     case "ctaSection":
-      return <CtaSection data={section} />;
+      return <CtaSection data={section} logoLight={logoLight} />;
     case "contactSection":
       return <ContactSection data={section} />;
     case "menuSection":

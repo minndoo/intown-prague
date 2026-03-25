@@ -23,11 +23,6 @@ export const heroSection = defineType({
       type: 'imageWithAlt',
       validation: (rule) => rule.required(),
     }),
-    defineField({
-      name: 'cta',
-      title: 'Call to action',
-      type: 'ctaLink',
-    }),
   ],
   preview: {
     select: {title: 'tagline'},

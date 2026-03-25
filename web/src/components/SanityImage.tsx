@@ -14,9 +14,11 @@ type Props = {
   height?: number;
   className?: string;
   fill?: boolean;
+  sizes?: string;
+  quality?: number;
 };
 
-export function SanityImage({ image, alt, width, height, className, fill }: Props) {
+export function SanityImage({ image, alt, width, height, className, fill, sizes, quality = 75 }: Props) {
   if (!image?.asset) {
     return <div className={`bg-white/5 ${className ?? ""}`} style={fill ? { position: "absolute", inset: 0 } : { width, height }} />;
   }
@@ -24,11 +26,11 @@ export function SanityImage({ image, alt, width, height, className, fill }: Prop
   const source = {
     asset: image.asset ? { _id: image.asset._id, url: image.asset.url ?? undefined } : undefined,
   };
-  const url = urlFor(source).auto("format").url();
+  const url = urlFor(source).auto("format").quality(quality).url();
 
   if (fill) {
-    return <Image src={url} alt={alt ?? ""} fill className={className} />;
+    return <Image src={url} alt={alt ?? ""} fill sizes={sizes} quality={quality} className={className} />;
   }
 
-  return <Image src={url} alt={alt ?? ""} width={width ?? 800} height={height ?? 600} className={className} />;
+  return <Image src={url} alt={alt ?? ""} width={width ?? 800} height={height ?? 600} quality={quality} className={className} />;
 }

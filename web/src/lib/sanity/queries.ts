@@ -16,17 +16,12 @@ export const landingPageQuery = defineQuery(`
         },
         alt
       },
-      cta {
-        label,
-        linkType,
-        href,
-        anchor
-      }
     },
     sections[] {
       _key,
       _type,
       heading,
+      fragment,
       // introSection
       _type == "introSection" => {
         body,
@@ -118,7 +113,8 @@ export const landingPageQuery = defineQuery(`
           label,
           linkType,
           href,
-          anchor
+          path,
+          fragment
         },
         backgroundImage {
           image {
@@ -143,6 +139,14 @@ export const landingPageQuery = defineQuery(`
       },
       // menuSection
       _type == "menuSection" => {
+        image {
+          image {
+            asset->{_id, url, metadata {dimensions}},
+            hotspot,
+            crop
+          },
+          alt
+        },
         categories[] {
           _key,
           title,
@@ -171,7 +175,46 @@ export const siteSettingsQuery = defineQuery(`
   *[_id == "siteSettings"][0]{
     _id,
     siteTitle,
+    logo {
+      image {
+        asset->{_id, url, metadata {dimensions}},
+        hotspot,
+        crop
+      },
+      alt
+    },
+    logoWithText {
+      image {
+        asset->{_id, url, metadata {dimensions}},
+        hotspot,
+        crop
+      },
+      alt
+    },
+    logoLight {
+      image {
+        asset->{_id, url, metadata {dimensions}},
+        hotspot,
+        crop
+      },
+      alt
+    },
     copyrightText,
+    navLinks[] {
+      _key,
+      label,
+      linkType,
+      href,
+      path,
+      fragment
+    },
+    reservationLink {
+      label,
+      linkType,
+      href,
+      path,
+      fragment
+    },
     socialLinks[] {
       _key,
       platform,

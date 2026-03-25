@@ -1,5 +1,6 @@
 import {defineField, defineType} from 'sanity'
 import {BlockquoteIcon} from '@sanity/icons'
+import {fragmentField} from '../primitives/anchorField'
 
 export const testimonialSection = defineType({
   name: 'testimonialSection',
@@ -7,6 +8,7 @@ export const testimonialSection = defineType({
   type: 'object',
   icon: BlockquoteIcon,
   fields: [
+    fragmentField,
     defineField({
       name: 'heading',
       type: 'string',

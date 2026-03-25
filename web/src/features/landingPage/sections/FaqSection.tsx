@@ -10,7 +10,7 @@ type Props = { data: Section };
 
 export function FaqSection({ data }: Props) {
   return (
-    <section className="py-24 px-6 max-w-3xl mx-auto">
+    <section id={data.fragment ?? undefined} className="py-24 px-6 max-w-3xl mx-auto">
       {data.heading && (
         <h2 className="text-3xl font-extralight uppercase tracking-widest text-gold text-center mb-16">
           {data.heading}

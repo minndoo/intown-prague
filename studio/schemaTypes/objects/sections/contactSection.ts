@@ -1,5 +1,6 @@
 import {defineField, defineType} from 'sanity'
 import {PinIcon} from '@sanity/icons'
+import {fragmentField} from '../primitives/anchorField'
 
 export const contactSection = defineType({
   name: 'contactSection',
@@ -7,6 +8,7 @@ export const contactSection = defineType({
   type: 'object',
   icon: PinIcon,
   fields: [
+    fragmentField,
     defineField({
       name: 'heading',
       type: 'string',

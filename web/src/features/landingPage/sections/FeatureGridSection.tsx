@@ -10,7 +10,7 @@ type Props = { data: Section };
 
 export function FeatureGridSection({ data }: Props) {
   return (
-    <section className="py-24 px-6 max-w-6xl mx-auto">
+    <section id={data.fragment ?? undefined} className="py-24 px-6 max-w-6xl mx-auto">
       <div className="text-center mb-16">
         {data.heading && (
           <h2 className="text-3xl font-extralight uppercase tracking-widest text-gold">
@@ -25,11 +25,12 @@ export function FeatureGridSection({ data }: Props) {
         {data.features?.map((feature) => (
           <div key={feature._key} className="text-center">
             {feature.image?.image && (
-              <div className="relative aspect-square mb-4 overflow-hidden">
+              <div className="relative aspect-[3/4] mb-4 overflow-hidden">
                 <SanityImage
                   image={feature.image.image}
                   alt={feature.image.alt}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover"
                 />
               </div>

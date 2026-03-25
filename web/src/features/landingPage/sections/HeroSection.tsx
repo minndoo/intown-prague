@@ -1,6 +1,5 @@
 import type { LandingPageQueryResult } from "@/lib/sanity/generated/types";
 import { SanityImage } from "@/components/SanityImage";
-import { CtaButton } from "@/components/CtaButton";
 
 type Props = {
   data: NonNullable<NonNullable<LandingPageQueryResult>["heroSection"]>;
@@ -15,7 +14,8 @@ export function HeroSection({ data }: Props) {
             image={data.backgroundImage.image}
             alt={data.backgroundImage.alt}
             fill
-            className="object-cover"
+            sizes="100vw"
+            className="object-cover w-full h-full"
           />
           <div className="absolute inset-0 bg-black/60" />
         </>
@@ -32,11 +32,6 @@ export function HeroSection({ data }: Props) {
           <p className="mt-6 text-lg md:text-xl text-white/70 font-extralight">
             {data.subtitle}
           </p>
-        )}
-        {data.cta && (
-          <div className="mt-10">
-            <CtaButton cta={data.cta} />
-          </div>
         )}
       </div>
     </section>

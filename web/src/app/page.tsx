@@ -14,9 +14,9 @@ export default async function Home() {
 
   return (
     <>
-      <Header />
+      <Header settings={settings} />
       <main>
-        <LandingPage data={page} />
+        <LandingPage data={page} settings={settings} />
       </main>
       <Footer settings={settings} />
     </>

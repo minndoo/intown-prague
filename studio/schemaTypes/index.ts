@@ -29,6 +29,7 @@ import {featureCard} from './objects/primitives/featureCard'
 import {socialLink} from './objects/primitives/socialLink'
 import {menuItem} from './objects/primitives/menuItem'
 import {menuCategory} from './objects/primitives/menuCategory'
+import {navLink} from './objects/primitives/navLink'
 
 // Legacy
 import {postType} from './postType'
@@ -65,6 +66,7 @@ export const schemaTypes = [
   socialLink,
   menuItem,
   menuCategory,
+  navLink,
 
   // Legacy
   postType,

@@ -1,5 +1,6 @@
 import {defineField, defineType} from 'sanity'
 import {LaunchIcon} from '@sanity/icons'
+import {fragmentField} from '../primitives/anchorField'
 
 export const ctaSection = defineType({
   name: 'ctaSection',
@@ -7,6 +8,7 @@ export const ctaSection = defineType({
   type: 'object',
   icon: LaunchIcon,
   fields: [
+    fragmentField,
     defineField({
       name: 'heading',
       type: 'string',

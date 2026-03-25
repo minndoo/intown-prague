@@ -1,5 +1,6 @@
 import {defineField, defineType} from 'sanity'
 import {BarChartIcon} from '@sanity/icons'
+import {fragmentField} from '../primitives/anchorField'
 
 export const statsSection = defineType({
   name: 'statsSection',
@@ -7,6 +8,7 @@ export const statsSection = defineType({
   type: 'object',
   icon: BarChartIcon,
   fields: [
+    fragmentField,
     defineField({
       name: 'heading',
       type: 'string',

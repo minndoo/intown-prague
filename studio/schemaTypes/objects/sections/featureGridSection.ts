@@ -1,5 +1,6 @@
 import {defineField, defineType} from 'sanity'
 import {ThListIcon} from '@sanity/icons'
+import {fragmentField} from '../primitives/anchorField'
 
 export const featureGridSection = defineType({
   name: 'featureGridSection',
@@ -7,6 +8,7 @@ export const featureGridSection = defineType({
   type: 'object',
   icon: ThListIcon,
   fields: [
+    fragmentField,
     defineField({
       name: 'heading',
       type: 'string',
